@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3205B0CF-C239-4C08-A6CF-BF399198CA98}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccess</RootNamespace>
+    <AssemblyName>DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Abstractions, Version=7.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Abstractions.7.2.0\lib\net461\Microsoft.IdentityModel.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=7.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.7.2.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=7.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.7.2.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=7.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.7.2.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=7.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.7.2.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.5.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.7.2\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.4.7.2\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\AchievementMaster.cs" />
+    <Compile Include="Entities\AppDbContext.cs" />
+    <Compile Include="Entities\BankACTypeMaster.cs" />
+    <Compile Include="Entities\BankInfromationMaster.cs" />
+    <Compile Include="Entities\BankMaster.cs" />
+    <Compile Include="Entities\BloodGroupMaster.cs" />
+    <Compile Include="Entities\CampaignCategory.cs" />
+    <Compile Include="Entities\CampaignContactCategory.cs" />
+    <Compile Include="Entities\CampaignMaster.cs" />
+    <Compile Include="Entities\CityMaster.cs" />
+    <Compile Include="Entities\ClientMaster.cs" />
+    <Compile Include="Entities\CompanyDocumentTypeMaster.cs" />
+    <Compile Include="Entities\CompanyMaster.cs" />
+    <Compile Include="Entities\ContactMaster.cs" />
+    <Compile Include="Entities\CorporateBrandingMaster.cs" />
+    <Compile Include="Entities\CountryMaster.cs" />
+    <Compile Include="Entities\CustomerMaster.cs" />
+    <Compile Include="Entities\DailytaskMaster.cs" />
+    <Compile Include="Entities\DailyWorkBook.cs" />
+    <Compile Include="Entities\DayBook.cs" />
+    <Compile Include="Entities\DepartmentMaster.cs" />
+    <Compile Include="Entities\DepartmentRightsMaster.cs" />
+    <Compile Include="Entities\DesignationMaster.cs" />
+    <Compile Include="Entities\DocumentTypeMaster.cs" />
+    <Compile Include="Entities\DomainRegistrationMaster.cs" />
+    <Compile Include="Entities\EmailAccountMaster.cs" />
+    <Compile Include="Entities\EmailAccountUserMaster.cs" />
+    <Compile Include="Entities\EmailCredentialMaster.cs" />
+    <Compile Include="Entities\EmailTemplateMaster.cs" />
+    <Compile Include="Entities\EmployeeBankDetailsMaster.cs" />
+    <Compile Include="Entities\EmployeeMaster.cs" />
+    <Compile Include="Entities\EmployeeSkillMaster.cs" />
+    <Compile Include="Entities\ERPImplemetationMaster.cs" />
+    <Compile Include="Entities\GenderMaster.cs" />
+    <Compile Include="Entities\HolidayMaster.cs" />
+    <Compile Include="Entities\HonorificMaster.cs" />
+    <Compile Include="Entities\IndustrySectorMaster.cs" />
+    <Compile Include="Entities\LanguageMaster.cs" />
+    <Compile Include="Entities\LeadFollowup.cs" />
+    <Compile Include="Entities\LeadGroup.cs" />
+    <Compile Include="Entities\LeadHistoryMaster.cs" />
+    <Compile Include="Entities\LeadMaster.cs" />
+    <Compile Include="Entities\LeadRatio.cs" />
+    <Compile Include="Entities\LeadTypeMaster.cs" />
+    <Compile Include="Entities\LeaveAddonMaster.cs" />
+    <Compile Include="Entities\LeaveMaster.cs" />
+    <Compile Include="Entities\LeaveParameterMaster.cs" />
+    <Compile Include="Entities\ManageEmployeeDocumentMaster.cs" />
+    <Compile Include="Entities\MeetingMOMMaster.cs" />
+    <Compile Include="Entities\MenuMaster.cs" />
+    <Compile Include="Entities\MobileApplication.cs" />
+    <Compile Include="Entities\MonthMaster.cs" />
+    <Compile Include="Entities\NoticeBoardMaster.cs" />
+    <Compile Include="Entities\OrderMaster.cs" />
+    <Compile Include="Entities\PriorityMaster.cs" />
+    <Compile Include="Entities\ProjectMaster.cs" />
+    <Compile Include="Entities\ProjectMeetingMaster.cs" />
+    <Compile Include="Entities\ProjectPhaseMaster.cs" />
+    <Compile Include="Entities\ProposalHistory.cs" />
+    <Compile Include="Entities\PunchDataMaster.cs" />
+    <Compile Include="Entities\RolesAndResposibilityMaster.cs" />
+    <Compile Include="Entities\SalesFunnel.cs" />
+    <Compile Include="Entities\SEOSubmissionMaster.cs" />
+    <Compile Include="Entities\ServiceGroupMaster.cs" />
+    <Compile Include="Entities\ServicePassword.cs" />
+    <Compile Include="Entities\ShiftMaster.cs" />
+    <Compile Include="Entities\SMMSubmission.cs" />
+    <Compile Include="Entities\SoftwareDevelopmentMaster.cs" />
+    <Compile Include="Entities\SSLCertificate.cs" />
+    <Compile Include="Entities\StarAssignMaster.cs" />
+    <Compile Include="Entities\StarMaster.cs" />
+    <Compile Include="Entities\StateMaster.cs" />
+    <Compile Include="Entities\StatusMaster.cs" />
+    <Compile Include="Entities\TaskDay.cs" />
+    <Compile Include="Entities\TaskListMaster.cs" />
+    <Compile Include="Entities\TaskTransfer.cs" />
+    <Compile Include="Entities\TaskTransferMaster.cs" />
+    <Compile Include="Entities\TechnologyMaster.cs" />
+    <Compile Include="Entities\TypesOfResponse.cs" />
+    <Compile Include="Entities\VendorMaster.cs" />
+    <Compile Include="Entities\WebApplicationMaster.cs" />
+    <Compile Include="Entities\WebDesignMaster.cs" />
+    <Compile Include="Entities\WebHosting.cs" />
+    <Compile Include="Entities\WFHBalance.cs" />
+    <Compile Include="Entities\WFHLeave.cs" />
+    <Compile Include="Entities\WFHParameter.cs" />
+    <Compile Include="Entities\WFHType.cs" />
+    <Compile Include="Entities\WorklistMaster.cs" />
+    <Compile Include="Entities\YearMaster.cs" />
+    <Compile Include="Iservice.cs" />
+    <Compile Include="Logic\AchievementLogic.cs" />
+    <Compile Include="Logic\BloodGroupLogic.cs" />
+    <Compile Include="Logic\CampaignLogic.cs" />
+    <Compile Include="Logic\ClientLogic.cs" />
+    <Compile Include="Logic\CorporateBrandingLogic.cs" />
+    <Compile Include="Logic\CustomerLogic.cs" />
+    <Compile Include="Logic\CompanyMasterLogic.cs" />
+    <Compile Include="Logic\ContactLogic.cs" />
+    <Compile Include="Logic\DailytaskLogic.cs" />
+    <Compile Include="Logic\DesignationLogic.cs" />
+    <Compile Include="Logic\DomainRegistrationLogic.cs" />
+    <Compile Include="Logic\EmailAccountLogic.cs" />
+    <Compile Include="Logic\EmailCredentialLogic.cs" />
+    <Compile Include="Logic\EmailTemplateLogic.cs" />
+    <Compile Include="Logic\ERPImplementataionLogic.cs" />
+    <Compile Include="Logic\HolidaysLogic.cs" />
+    <Compile Include="Logic\IndustrySectorLogic.cs" />
+    <Compile Include="Logic\LeadMasterLogic.cs" />
+    <Compile Include="Logic\LeadHistoryLogic.cs" />
+    <Compile Include="Logic\LeadTypeLogic.cs" />
+    <Compile Include="Logic\LeaveAddonLogic.cs" />
+    <Compile Include="Logic\LeaveMasterLogic.cs" />
+    <Compile Include="Logic\LeaveParameterLogic.cs" />
+    <Compile Include="Logic\MobileApplicationLogic.cs" />
+    <Compile Include="Logic\MonthLogic.cs" />
+    <Compile Include="Logic\NoticeBoardLogic.cs" />
+    <Compile Include="Logic\OrderLogic.cs" />
+    <Compile Include="Logic\PriorityLogic.cs" />
+    <Compile Include="Logic\ProjectLogic.cs" />
+    <Compile Include="Logic\ProjectMeetingLogic.cs" />
+    <Compile Include="Logic\ProjectPhaseLogic.cs" />
+    <Compile Include="Logic\PunchDataLogic.cs" />
+    <Compile Include="Logic\SEOSubmissionLogic.cs" />
+    <Compile Include="Logic\ServicePasswordLogic.cs" />
+    <Compile Include="Logic\ShiftMasterLogic.cs" />
+    <Compile Include="Logic\SMMSubmissionLogic.cs" />
+    <Compile Include="Logic\SoftwareDevelopmentLogic.cs" />
+    <Compile Include="Logic\SSLCertificateLogic.cs" />
+    <Compile Include="Logic\StarLogic.cs" />
+    <Compile Include="Logic\StarAssignLogic.cs" />
+    <Compile Include="Logic\StatusLogic.cs" />
+    <Compile Include="Logic\TaskListLogic.cs" />
+    <Compile Include="Logic\WebApplicationLogic.cs" />
+    <Compile Include="Logic\WebHostingLogic.cs" />
+    <Compile Include="Logic\WebsiteDesigningLogic.cs" />
+    <Compile Include="Logic\WorklistLogic.cs" />
+    <Compile Include="Logic\ManageEmployeeMasterLogic.cs" />
+    <Compile Include="Logic\BankAccountLogic.cs" />
+    <Compile Include="Logic\HonoroficLogic.cs" />
+    <Compile Include="Logic\ManageBankLogic.cs" />
+    <Compile Include="Logic\GenderLogic.cs" />
+    <Compile Include="Logic\CompanyDocumentGroupLogic.cs" />
+    <Compile Include="Logic\ServiceGroupLogic.cs" />
+    <Compile Include="Logic\DepartmentLogic.cs" />
+    <Compile Include="Logic\CountryLogic.cs" />
+    <Compile Include="Logic\StateLogic.cs" />
+    <Compile Include="Logic\CityLogic.cs" />
+    <Compile Include="Logic\ManageCustomerLogic.cs" />
+    <Compile Include="Logic\ManageVenderLogic.cs" />
+    <Compile Include="Logic\ManageEmployeeDocLogic.cs" />
+    <Compile Include="Logic\ManageLanguageLogic.cs" />
+    <Compile Include="Logic\ManageSkillLogic.cs" />
+    <Compile Include="Logic\ManageTechnologyLogic.cs" />
+    <Compile Include="Logic\ManageYearLogic.cs" />
+    <Compile Include="Model\AchievementModel.cs" />
+    <Compile Include="Model\AssignStarModel.cs" />
+    <Compile Include="Model\ChangepasswordModel.cs" />
+    <Compile Include="Model\EmployeeDocumentModel.cs" />
+    <Compile Include="Model\EmployeeImageModel.cs" />
+    <Compile Include="Model\EmployeeMaster_model.cs" />
+    <Compile Include="Model\ForgotPasswordModel.cs" />
+    <Compile Include="Model\HolidaysModel.cs" />
+    <Compile Include="Model\LoginModel.cs" />
+    <Compile Include="Model\LoginResponseModel.cs" />
+    <Compile Include="Model\NoticeBoardModel.cs" />
+    <Compile Include="Model\ProjectModel.cs" />
+    <Compile Include="Model\ProjectPhaseModel.cs" />
+    <Compile Include="Model\StarModel.cs" />
+    <Compile Include="Model\TaskModel.cs" />
+    <Compile Include="Model\TaskRequestModel.cs" />
+    <Compile Include="Model\WorklistModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AchievementRepository.cs" />
+    <Compile Include="Repository\BloodGroupRepository.cs" />
+    <Compile Include="Repository\CampaignRepository.cs" />
+    <Compile Include="Repository\ClientRepository.cs" />
+    <Compile Include="Repository\CorporateBrandingRepository.cs" />
+    <Compile Include="Repository\CustomerRepository.cs" />
+    <Compile Include="Repository\CompanyMasterRepository.cs" />
+    <Compile Include="Repository\ContactRepository.cs" />
+    <Compile Include="Repository\DailytaskRepository.cs" />
+    <Compile Include="Repository\DesignationRepository.cs" />
+    <Compile Include="Repository\DomainRegistrationRepository.cs" />
+    <Compile Include="Repository\EmailAccountRepository.cs" />
+    <Compile Include="Repository\EmailCredentialRepository.cs" />
+    <Compile Include="Repository\EmailTemplateRepository.cs" />
+    <Compile Include="Repository\ERPImplementationRepository.cs" />
+    <Compile Include="Repository\HolidaysRepository.cs" />
+    <Compile Include="Repository\IndustrySectorRepository.cs" />
+    <Compile Include="Repository\LeadMasterRepository.cs" />
+    <Compile Include="Repository\LeadHistoryRepository.cs" />
+    <Compile Include="Repository\LeadTypeRepository.cs" />
+    <Compile Include="Repository\LeaveAddonRepository.cs" />
+    <Compile Include="Repository\LeaveMasterRepository.cs" />
+    <Compile Include="Repository\LeaveParameterRepository.cs" />
+    <Compile Include="Repository\MobileApplicationRepository.cs" />
+    <Compile Include="Repository\MonthRepository.cs" />
+    <Compile Include="Repository\NoticeBoardRepository.cs" />
+    <Compile Include="Repository\OrderRepository.cs" />
+    <Compile Include="Repository\PriorityRepository.cs" />
+    <Compile Include="Repository\ProjectRepository.cs" />
+    <Compile Include="Repository\ProjectMeetingRepository.cs" />
+    <Compile Include="Repository\ProjectPhaseRepository.cs" />
+    <Compile Include="Repository\PunchDataRepository.cs" />
+    <Compile Include="Repository\SEOSubmissionRepository.cs" />
+    <Compile Include="Repository\ServicePasswordRepository.cs" />
+    <Compile Include="Repository\ShiftMasterRepository.cs" />
+    <Compile Include="Repository\SMMSubmissionRepository.cs" />
+    <Compile Include="Repository\SofwareDevelopmentRepository.cs" />
+    <Compile Include="Repository\SSLCertificateRepository.cs" />
+    <Compile Include="Repository\StarRepository.cs" />
+    <Compile Include="Repository\StarAssignRepository.cs" />
+    <Compile Include="Repository\StatusRepository.cs" />
+    <Compile Include="Repository\TaskDayRepository.cs" />
+    <Compile Include="Repository\WebApplicationRepository.cs" />
+    <Compile Include="Repository\WebDesigningRepository.cs" />
+    <Compile Include="Repository\WebHostingRepository.cs" />
+    <Compile Include="Repository\WorklistRepository.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\ManageEmployeeMasterRepository.cs" />
+    <Compile Include="Repository\BankAccountRepository.cs" />
+    <Compile Include="Repository\HonoroficRepository.cs" />
+    <Compile Include="Repository\ManageBankRepository.cs" />
+    <Compile Include="Repository\GenderRepository.cs" />
+    <Compile Include="Repository\DocumentGroupRepository.cs" />
+    <Compile Include="Repository\ServiceGroupRepository.cs" />
+    <Compile Include="Repository\DepartmentRepository.cs" />
+    <Compile Include="Repository\CountryRepository.cs" />
+    <Compile Include="Repository\StateRepository.cs" />
+    <Compile Include="Repository\CityRepository.cs" />
+    <Compile Include="Repository\ManageCustomerRepository.cs" />
+    <Compile Include="Repository\ManageVendorRepository.cs" />
+    <Compile Include="Repository\ManageEmployeeDocRepository.cs" />
+    <Compile Include="Repository\ManageLanguageRepository.cs" />
+    <Compile Include="Repository\ManageSkillRepository.cs" />
+    <Compile Include="Repository\ManageTechnologyRepository.cs" />
+    <Compile Include="Repository\ManageYearRepository.cs" />
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Service.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>
